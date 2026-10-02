@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BF's Day 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f5;
+      color: #3b1724;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 10vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    button {
+      border: none;
+      background: #ff6f9f;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 25px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(255, 80, 130, 0.2);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    /* PAGE 1 */
+
+    #page1 {
+      background: linear-gradient(135deg, #ffe0eb, #fff7fa);
+    }
+
+    .heart {
+      font-size: 75px;
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* PAGE 2 */
+
+    .reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .reason {
+      background: white;
+      padding: 25px 15px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .reason:hover {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+
+    .reason span {
+      display: block;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    /* PAGE 3 */
+
+    .quiz-box {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .option {
+      display: block;
+      width: 100%;
+      margin: 12px 0;
+      background: #fff0f5;
+      color: #3b1724;
+      box-shadow: none;
+    }
+
+    #quizResult {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* PAGE 4 */
+
+    .photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .photo-card {
+      background: white;
+      padding: 10px 10px 18px;
+      border-radius: 5px;
+      box-shadow: 0 7px 18px rgba(0,0,0,0.15);
+      transform: rotate(-2deg);
+    }
+
+    .photo-card:nth-child(even) {
+      transform: rotate(2deg);
+    }
+
+    .photo-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-card p {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    /* PAGE 5 */
+
+    .letter {
+      background: #fffdf7;
+      padding: 30px 24px;
+      border-radius: 12px;
+      text-align: left;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      white-space: pre-line;
+      line-height: 1.7;
+    }
+
+    /* PAGE 6 */
+
+    #page6 {
+      background: linear-gradient(135deg, #ffc9dc, #fff0f5);
+    }
+
+    .big-heart {
+      font-size: 100px;
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    .final-message {
+      font-size: 1.3rem;
+      margin-top: 15px;
+    }
+
+    #finalResult {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 500px) {
+      .reasons,
+      .photos {
+        grid-template-columns: 1fr;
+      }
+
+      .letter {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- PAGE 1 -->
+
+  <section class="page active" id="page1">
+
+    <div class="container">
+
+      <div class="heart">💗</div>
+
+      <h1>
+        HAPPY BF'S DAY<br>
+        MY FAT BITCH 😭💗
+      </h1>
+
+      <p>
+        congratulations on surviving another day of being my boyfriend.
+      </p>
+
+      <button onclick="showPage(2)">
+        enter at your own risk 🤭
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAGE 2 -->
+
+  <section class="page" id="page2">
+
+    <div class="container">
+
+      <h2>reasons i like you 🥰</h2>
+
+      <p>
+        unfortunately for you, there are actually quite a few.
+      </p>
+
+      <div class="reasons">
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'you make me laugh 😭')">
+          <span>😭</span>
+          tap me
+        </div>
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'you actually care about me ❤️')">
+          <span>❤️</span>
+          tap me
+        </div>
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'you tolerate my nonsense 🙄')">
+          <span>🙄</span>
+          tap me
+        </div>
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'you are my favourite idiot 🧸')">
+          <span>🧸</span>
+          tap me
+        </div>
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'you make me happy 🥰')">
+          <span>🥰</span>
+          tap me
+        </div>
+
+        <div class="reason"
+             onclick="reasonClicked(this, 'and because... duh 🤭')">
+          <span>🤭</span>
+          tap me
+        </div>
+
+      </div>
+
+      <button onclick="showPage(3)">
+        okay enough feelings →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAGE 3 -->
+
+  <section class="page" id="page3">
+
+    <div class="container">
+
+      <h2>boyfriend test 🎮</h2>
+
+      <div class="quiz-box">
+
+        <p>
+          Who is the funniest person in this relationship..
+          me? you? our teddy? why are you even asking?
+        </p>
+
+        <button class="option" onclick="quiz('wrong')">
+          Me
+        </button>
+
+        <button class="option" onclick="quiz('wrong')">
+          You
+        </button>
+
+        <button class="option" onclick="quiz('wrong')">
+          Our teddy 🧸
+        </button>
+
+        <button class="option" onclick="quiz('correct')">
+          Why are you even asking?
+        </button>
+
+        <p id="quizResult"></p>
+
+      </div>
+
+      <button onclick="showPage(4)">
+        continue →
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAGE 4 -->
+
+  <section class="page" id="page4">
+
+    <div class="container">
+
+      <h2>our little corner 📸</h2>
+
+      <p>
+        some of my favourite memories with you 🥹
+      </p>
+
+      <div class="photos">
+
+        <div class="photo-card">
+          <img src="images/photo1.jpeg">
+          <p>love our chaotic side</p>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo2.jpeg">
+          <p>u always copy my poses🙄</p>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo3.jpeg">
+          <p>one hand on me, one hand WHERE😭</p>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo4.jpeg">
+          <p>
+            from walking to improve my digestion
+            to having our first kiss🥰
+          </p>
+        </div>
+
+      </div>
+
+      <button onclick="showPage(5)">
+        one more thing → 
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAGE 5 -->
+
+  <section class="page" id="page5">
+
+    <div class="container">
+
+      <h2>open this 💌</h2>
+
+      <div class="letter">
+
+Happiesttt BF’s Day to the loml!! ❤️
+
+I love you so, so, SO much. I never imagined that the guy I used to consider an NPC would become my boyfriend (lucky you 🤭)..
+It’s only been a few days since we officially became a thing, but we both know we’ve loved each other for quite a while now… 🥹❤️
+I’ll always love you for supporting me and for knowing when to stop annoying me (you ALWAYS annoy me 🙄, but I love that 🥰)
+Discussing my deepest secrets just to get teased about them wasn’t exactly my best decision, but definitely not a bad one either 😭..
+Ab bohot pyaar de diya, toh Monday ko ek Frankie khila dena 🤭🤭
+I loveee youuu, my mutthi partner❤️
+
+      </div>
+
+      <button onclick="showPage(6)">
+        last page i swear 😭
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAGE 6 -->
+
+  <section class="page" id="page6">
+
+    <div class="container">
+
+      <div class="big-heart">💗</div>
+
+      <h1>
+        I LOVE YOUUU 😭💗
+      </h1>
+
+      <p class="final-message">
+        happy BF's day, idiot.
+      </p>
+
+      <button onclick="finalButton()">
+        click if you love me
+      </button>
+
+      <p id="finalResult"></p>
+
+    </div>
+
+  </section>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function showPage(pageNumber) {
+
+      document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+      });
+
+      document
+        .getElementById("page" + pageNumber)
+        .classList.add("active");
+
+      window.scrollTo(0, 0);
+    }
+
+
+    function reasonClicked(card, message) {
+
+      card.innerHTML =
+        "<span>💗</span>" + message;
+
+    }
+
+
+    function quiz(answer) {
+
+      const result =
+        document.getElementById("quizResult");
+
+      if (answer === "correct") {
+
+        result.innerHTML =
+          "CORRECT 😭💗 you may continue being my boyfriend.";
+
+      } else {
+
+        result.innerHTML =
+          "WRONG. rethink your life choices 🙄";
+
+      }
+
+    }
+
+
+    function finalButton() {
+
+      document.getElementById("finalResult").innerHTML =
+        "I KNEW IT 🤭💗";
+
+    }
+
+  </script>
+
+</body>
+</html>
